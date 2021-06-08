@@ -18,6 +18,11 @@ namespace RayMarchingDirectX
         {
             Graphics = new GraphicsDeviceManager(this);
             Graphics.GraphicsProfile = GraphicsProfile.HiDef;
+
+            Graphics.PreferredBackBufferHeight = 800;
+            Graphics.PreferredBackBufferWidth = 800;
+            Graphics.ApplyChanges();
+
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
         }
@@ -25,7 +30,7 @@ namespace RayMarchingDirectX
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-            RenderTarget = new RenderTarget2D(GraphicsDevice, Graphics.PreferredBackBufferWidth, Graphics.PreferredBackBufferHeight);
+            RenderTarget = new RenderTarget2D(GraphicsDevice, 800, 800);//Graphics.PreferredBackBufferWidth, Graphics.PreferredBackBufferHeight);
             RayMarching = Content.Load<Effect>("Shaders/RayMarching");
 
             base.Initialize();
@@ -43,9 +48,9 @@ namespace RayMarchingDirectX
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            PlayerPosition += new Vector3(GetAxis(Keys.A, Keys.D) * PlayerSpeed,
-                                          GetAxis(Keys.W, Keys.S) * PlayerSpeed,
-                                          0);
+            PlayerPosition += PlayerSpeed * new Vector3(GetAxis(Keys.A, Keys.D),
+                                          GetAxis(Keys.R, Keys.F),
+                                          GetAxis(Keys.W, Keys.S));
 
             RayMarching.Parameters["playerPos"].SetValue(PlayerPosition);
 

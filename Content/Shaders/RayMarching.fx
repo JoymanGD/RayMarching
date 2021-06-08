@@ -62,7 +62,9 @@ float GetLight(float3 p){
     float3 LightPos = float3(0, 5, 1);
     float3 LightVector = normalize(LightPos - p);
     float3 NormalVector = GetNormal(p);
-    float Light = dot(NormalVector, LightVector);
+    float Light = clamp(dot(NormalVector, LightVector), 0., 1.);
+    float d = RayMarch(p+NormalVector*SURFACE_DISTANCE*2., LightVector);
+    if(d < length(LightPos-p)) Light *= .1;
     return Light;
 }
 
