@@ -46,7 +46,7 @@ float3 GetNormal(float3 p){
 float RayMarch(float3 rayOrigin, float3 rayDirection){
     float currentDistance = 0.;
     
-    [unroll(MAX_STEPS)] for(int i=0; i < MAX_STEPS; i++){
+    for(int i=0; i < MAX_STEPS; i++){
         float3 position = rayOrigin + rayDirection*currentDistance;
         float distanceStep = GetDistance(position);
         currentDistance += distanceStep;
@@ -58,7 +58,7 @@ float RayMarch(float3 rayOrigin, float3 rayDirection){
 }
 
 float GetLight(float3 p){
-    float3 LightPos = float3(0, -7, 0);
+    float3 LightPos = float3(0, 5, 1);
     float3 LightVector = normalize(LightPos - p);
     float3 NormalVector = GetNormal(p);
     float Light = dot(NormalVector, LightVector);
@@ -68,8 +68,7 @@ float GetLight(float3 p){
 
 float4 MainPS(float4 POS : SV_POSITION, float4 COL : COLOR0, float2 TEXCOORD : TEXCOORD0) : SV_TARGET0
 {
-    float2 uv = TEXCOORD;
-    uv -= .5;
+    float2 uv = -(TEXCOORD - .5);
     
     float3 ro = float3(0, 1, 0);
     float3 rd = normalize(float3(uv.x, uv.y, 1));
