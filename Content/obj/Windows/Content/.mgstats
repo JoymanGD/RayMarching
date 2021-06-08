@@ -1,3 +1,3 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
-"e:/Profiles/v.kruglyakov/Desktop/RayMarchingDirectX/Content/Fonts/Default.spritefont","e:/Profiles/v.kruglyakov/Desktop/RayMarchingDirectX/Content/bin/Windows/Content/Fonts/Default.xnb","FontDescriptionProcessor","SpriteFontContent",2008,21538,0,3325991
-"e:/Profiles/v.kruglyakov/Desktop/RayMarchingDirectX/Content/Shaders/RayMarching.fx","e:/Profiles/v.kruglyakov/Desktop/RayMarchingDirectX/Content/bin/Windows/Content/Shaders/RayMarching.xnb","EffectProcessor","CompiledEffectContent",2593,6261,0,4792242
+"C:/Users/UserName/Desktop/RayMarching/Content/Fonts/Default.spritefont","C:/Users/UserName/Desktop/RayMarching/Content/bin/Windows/Content/Fonts/Default.xnb","FontDescriptionProcessor","SpriteFontContent",2068,21538,0.4626448
+"C:/Users/UserName/Desktop/RayMarching/Content/Shaders/RayMarching.fx","C:/Users/UserName/Desktop/RayMarching/Content/bin/Windows/Content/Shaders/RayMarching.xnb","EffectProcessor","CompiledEffectContent",2651,6222,0.8467244

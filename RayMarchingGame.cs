@@ -1,4 +1,5 @@
-﻿using System;
+﻿using System.Collections.Specialized;
+using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -12,7 +13,9 @@ namespace RayMarchingDirectX
         private Effect RayMarching;
         private RenderTarget2D RenderTarget;
         private Vector3 PlayerPosition;
+        private Vector2 CameraPosition;
         private const float PlayerSpeed = .06f;
+        private const float CameraSpeed = .1f;
         private SpriteFont DefaultFont;
 
         public RayMarchingGame()
@@ -56,6 +59,11 @@ namespace RayMarchingDirectX
                                           GetAxis(Keys.W, Keys.S));
 
             RayMarching.Parameters["playerPos"].SetValue(PlayerPosition);
+
+            CameraPosition += CameraSpeed * new Vector2(GetAxis(Keys.Left, Keys.Right),
+                                          GetAxis(Keys.Up, Keys.Down));
+
+            RayMarching.Parameters["cameraPos"].SetValue(CameraPosition);
 
             base.Update(gameTime);
         }

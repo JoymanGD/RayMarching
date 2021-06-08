@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>e:/Profiles/v.kruglyakov/Desktop/RayMarchingDirectX/Content/Shaders/RayMarching.fx</SourceFile>
-  <SourceTime>2021-06-08T17:26:38.4540442+10:00</SourceTime>
-  <DestFile>e:/Profiles/v.kruglyakov/Desktop/RayMarchingDirectX/Content/bin/Windows/Content/Shaders/RayMarching.xnb</DestFile>
-  <DestTime>2021-06-08T17:37:19.9237237+10:00</DestTime>
+  <SourceFile>C:/Users/UserName/Desktop/RayMarching/Content/Shaders/RayMarching.fx</SourceFile>
+  <SourceTime>2021-06-08T21:53:35.3673102+10:00</SourceTime>
+  <DestFile>C:/Users/UserName/Desktop/RayMarching/Content/bin/Windows/Content/Shaders/RayMarching.xnb</DestFile>
+  <DestTime>2021-06-08T21:53:39.3847149+10:00</DestTime>
   <Importer>EffectImporter</Importer>
   <ImporterTime>2020-08-10T16:17:54+10:00</ImporterTime>
   <Processor>EffectProcessor</Processor>
