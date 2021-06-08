@@ -4,6 +4,7 @@
 #define MAX_DISTANCE 100.
 #define SURFACE_DISTANCE .01
 
+float3 playerPos = float3(0,0,0);
 
 float Sphere(float4 spherePosition, float3 position){
     float sphereDistance = length(position-spherePosition.xyz)-spherePosition.w;
@@ -22,11 +23,11 @@ float SmoothBlending(float distA, float distB, float k){
 float GetDistance(float3 position){
     
     float plane = Plane(position);
-    float sphere = Sphere(float4(.5, 1, 6, 1), position);
-    float sphere2 = Sphere(float4(-.5, 1, 6, 1), position);
+    float sphere = Sphere(float4(.5 + playerPos.x, 1 + playerPos.y, 6 + playerPos.z, 1), position);
+    float sphere2 = Sphere(float4(1, 1, 6, 1), position);
     
-    float spheres = SmoothBlending(sphere, sphere2, .1);
-    float d = min(spheres, plane);
+    float spheres = SmoothBlending(sphere, sphere2, .4);
+    float d = SmoothBlending(spheres, plane, .7);
     
     return d;
 }
