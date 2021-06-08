@@ -13,6 +13,7 @@ namespace RayMarchingDirectX
         private RenderTarget2D RenderTarget;
         private Vector3 PlayerPosition;
         private const float PlayerSpeed = .06f;
+        private SpriteFont DefaultFont;
 
         public RayMarchingGame()
         {
@@ -31,7 +32,6 @@ namespace RayMarchingDirectX
         {
             // TODO: Add your initialization logic here
             RenderTarget = new RenderTarget2D(GraphicsDevice, 800, 800);//Graphics.PreferredBackBufferWidth, Graphics.PreferredBackBufferHeight);
-            RayMarching = Content.Load<Effect>("Shaders/RayMarching");
 
             base.Initialize();
         }
@@ -39,6 +39,9 @@ namespace RayMarchingDirectX
         protected override void LoadContent()
         {
             SpriteBatch = new SpriteBatch(GraphicsDevice);
+
+            RayMarching = Content.Load<Effect>("Shaders/RayMarching");
+            DefaultFont = Content.Load<SpriteFont>("Fonts/Default");
 
             // TODO: use this.Content to load your game content here
         }
@@ -67,6 +70,11 @@ namespace RayMarchingDirectX
             SpriteBatch.Begin(effect: RayMarching);
             SpriteBatch.Draw(RenderTarget, Vector2.Zero, null, Color.White);
             SpriteBatch.End();
+
+            SpriteBatch.Begin();
+            SpriteBatch.DrawString(DefaultFont, "Movement: WASD + RF", new Vector2(30, 30), Color.IndianRed);
+            SpriteBatch.End();
+            
             base.Draw(gameTime);
         }
     }

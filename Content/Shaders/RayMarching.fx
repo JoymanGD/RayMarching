@@ -23,8 +23,8 @@ float SmoothBlending(float distA, float distB, float k){
 float GetDistance(float3 position){
     
     float plane = Plane(position);
-    float sphere = Sphere(float4(.5 + playerPos.x, 1 + playerPos.y, 6 + playerPos.z, 1), position);
-    float sphere2 = Sphere(float4(1, 1, 6, 1), position);
+    float sphere = Sphere(float4(.5 + playerPos.x, 1 + playerPos.y, 8 + playerPos.z, .6), position);
+    float sphere2 = Sphere(float4(1, 1, 8, 1), position);
     
     float spheres = SmoothBlending(sphere, sphere2, .4);
     float d = SmoothBlending(spheres, plane, .7);

@@ -35,3 +35,4 @@ E:\Profiles\v.kruglyakov\Desktop\RayMarchingDirectX\obj\Debug\netcoreapp3.1\RayM
 E:\Profiles\v.kruglyakov\Desktop\RayMarchingDirectX\obj\Debug\netcoreapp3.1\RayMarchingDirectX.dll
 E:\Profiles\v.kruglyakov\Desktop\RayMarchingDirectX\obj\Debug\netcoreapp3.1\RayMarchingDirectX.pdb
 E:\Profiles\v.kruglyakov\Desktop\RayMarchingDirectX\obj\Debug\netcoreapp3.1\RayMarchingDirectX.genruntimeconfig.cache
+E:\Profiles\v.kruglyakov\Desktop\RayMarchingDirectX\bin\Debug\netcoreapp3.1\Content\Fonts\Default.xnb
