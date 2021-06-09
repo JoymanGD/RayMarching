@@ -4,8 +4,8 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>e:/Profiles/v.kruglyakov/Desktop/RayMarchingDirectX/Content/Fonts/Default.spritefont</File>
-    <File>e:/Profiles/v.kruglyakov/Desktop/RayMarchingDirectX/Content/Shaders/RayMarching.fx</File>
+    <File>E:/Profiles/v.kruglyakov/Desktop/RayMarchingDirectX/Content/Fonts/Default.spritefont</File>
+    <File>E:/Profiles/v.kruglyakov/Desktop/RayMarchingDirectX/Content/Shaders/RayMarching.fx</File>
   </SourceFiles>
   <DestFiles>
     <File xsi:nil="true" />

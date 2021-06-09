@@ -5,7 +5,7 @@
 #define SURFACE_DISTANCE .01
 
 float3 playerPos = float3(0,0,0);
-float2 cameraPos = float2(0,0);
+float3 cameraPos = float3(0,0,0);
 
 float Sphere(float4 spherePosition, float3 position){
     float sphereDistance = length(position-spherePosition.xyz)-spherePosition.w;
@@ -75,7 +75,7 @@ float4 MainPS(float4 POS : SV_POSITION, float4 COL : COLOR0, float2 TEXCOORD : T
     float2 uv = -(TEXCOORD - .5);
     
     float3 ro = float3(0, 1, 0);
-    ro.xy += cameraPos;
+    ro += cameraPos;
     float3 rd = normalize(float3(uv.x, uv.y, 1));
     
     float d = RayMarch(ro, rd);

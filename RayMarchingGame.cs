@@ -13,9 +13,9 @@ namespace RayMarchingDirectX
         private Effect RayMarching;
         private RenderTarget2D RenderTarget;
         private Vector3 PlayerPosition;
-        private Vector2 CameraPosition;
+        private Vector3 CameraPosition;
         private const float PlayerSpeed = .06f;
-        private const float CameraSpeed = .1f;
+        private const float CameraSpeed = .9f;
         private SpriteFont DefaultFont;
 
         public RayMarchingGame()
@@ -53,19 +53,30 @@ namespace RayMarchingDirectX
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
+            
+            Controll();
 
-            PlayerPosition += PlayerSpeed * new Vector3(GetAxis(Keys.A, Keys.D),
-                                          GetAxis(Keys.R, Keys.F),
-                                          GetAxis(Keys.W, Keys.S));
+            CameraFollow((float)gameTime.ElapsedGameTime.TotalSeconds);
 
-            RayMarching.Parameters["playerPos"].SetValue(PlayerPosition);
-
-            CameraPosition += CameraSpeed * new Vector2(GetAxis(Keys.Left, Keys.Right),
-                                          GetAxis(Keys.Up, Keys.Down));
-
-            RayMarching.Parameters["cameraPos"].SetValue(CameraPosition);
+            SetShaderValues();
 
             base.Update(gameTime);
+        }
+
+        private void Controll(){
+            PlayerPosition += PlayerSpeed * new Vector3(GetAxis(Keys.A, Keys.D),
+                                                        GetAxis(Keys.R, Keys.F),
+                                                        GetAxis(Keys.W, Keys.S));
+        }
+
+        private void CameraFollow(float deltaTime){
+            CameraPosition = Vector3.Lerp(CameraPosition, PlayerPosition, deltaTime * CameraSpeed);
+        }
+
+        private void SetShaderValues(){
+            RayMarching.Parameters["playerPos"].SetValue(PlayerPosition);
+
+            RayMarching.Parameters["cameraPos"].SetValue(CameraPosition);
         }
 
         private float GetAxis(Keys _positive, Keys _negative){
