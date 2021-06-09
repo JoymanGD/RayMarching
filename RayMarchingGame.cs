@@ -15,7 +15,7 @@ namespace RayMarchingDirectX
         private Vector3 PlayerPosition;
         private Vector3 CameraPosition;
         private const float PlayerSpeed = .06f;
-        private const float CameraSpeed = .9f;
+        private const float CameraFollowSpeed = 1.5f;
         private SpriteFont DefaultFont;
 
         public RayMarchingGame()
@@ -70,7 +70,7 @@ namespace RayMarchingDirectX
         }
 
         private void CameraFollow(float deltaTime){
-            CameraPosition = Vector3.Lerp(CameraPosition, PlayerPosition, deltaTime * CameraSpeed);
+            CameraPosition = Vector3.Lerp(CameraPosition, PlayerPosition, deltaTime * CameraFollowSpeed);
         }
 
         private void SetShaderValues(){
