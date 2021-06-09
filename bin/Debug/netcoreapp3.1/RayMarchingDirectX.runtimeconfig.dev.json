@@ -1,8 +1,0 @@
-{
-  "runtimeOptions": {
-    "additionalProbingPaths": [
-      "E:\\Profiles\\v.kruglyakov\\.dotnet\\store\\|arch|\\|tfm|",
-      "E:\\Profiles\\v.kruglyakov\\.nuget\\packages"
-    ]
-  }
-}
